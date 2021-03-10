@@ -1,10 +1,10 @@
 require 'sinatra'
 require_relative 'invention'
 
-alpha = Invention.new(:name => "Steam Pump", :inventor => "Thomas Savery", :year => 1712)
-bravo = Invention.new(:invention => "High-pressure piston steam engine", :inventor => "Jacob Leupold", :year => 1720)
-charlie = Invention.new(:invention => "Electrical defibrillator", :inventor => "Dr. Albert Hyman", :year => 1933)
-delta = Invention.new(:invention => "Ball bearing", :inventor => "Philip Vaughan", :year => 1794)
+# alpha = Invention.create(:name => "Steam Pump", :inventor => "Thomas Savery", :year => 1712)
+# bravo = Invention.create(:name => "High-pressure piston steam engine", :inventor => "Jacob Leupold", :year => 1720)
+# charlie = Invention.create(:name => "Electrical defibrillator", :inventor => "Dr. Albert Hyman", :year => 1933)
+# delta = Invention.create(:name => "Ball bearing", :inventor => "Philip Vaughan", :year => 1794)
 
 
 get '/inventions' do
@@ -33,8 +33,8 @@ get '/editInvention' do
     erb :edit_invention
 end
 
-post '/updateInvention' do
-    invention_to_update = Invention.find_by(title: params["title"])
+post '/updateInvention/:id' do
+    invention_to_update = Invention.find(params[:id])
     invention_to_update.name = params["name"]
     invention_to_update.inventor = params["inventor"]
     invention_to_update.year = params["year"]
@@ -50,4 +50,6 @@ get '/deleteInvention' do
     id = params["inventionID"]
     invention_to_delete = Invention.find(id)
     invention_to_delete.destroy
+
+    redirect to ("/inventions")
 end

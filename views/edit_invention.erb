@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,15 +11,15 @@
 
 <div>
     <h1>Submit the form to change the information.</h1>
-    <form action="/updateInvention" method="POST">
+    <form action="/updateInvention/<%= @invention.id %>" method="POST">
         <label for="inv_name">Name of Invention</label>
-        <input type="text" id="inv_name" nane="name" value= "<% @invention.name %>" >
+        <input type="text" id="inv_name" name="name" value= "<%= @invention.name %>" >
 
         <label for="inv_inventor">Name of Invention</label>
-        <input type="text" id="inv_inventor" nane="inventor" value= "<% @invention.inventor %>" >
+        <input type="text" id="inv_inventor" name="inventor" value= "<%= @invention.inventor %>" >
 
         <label for="inv_year">Name of Invention</label>
-        <input type="text" id="inv_year" nane="year" value= "<% @invention.year %>" >
+        <input type="text" id="inv_year" name="year" value= "<%= @invention.year %>" >
 
         <input type="submit" value="Submit">
     </form>

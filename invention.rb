@@ -15,3 +15,8 @@ class Invention < ActiveRecord::Base
 end
 
 Invention.auto_upgrade!
+
+# alpha = Invention.create(:name => "Steam Pump", :inventor => "Thomas Savery", :year => 1712)
+# bravo = Invention.create(:name => "High-pressure piston steam engine", :inventor => "Jacob Leupold", :year => 1720)
+# charlie = Invention.create(:name => "Electrical defibrillator", :inventor => "Dr. Albert Hyman", :year => 1933)
+# delta = Invention.create(:name => "Ball bearing", :inventor => "Philip Vaughan", :year => 1794)
